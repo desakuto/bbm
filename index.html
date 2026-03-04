@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<title>STRUK BBM</title>
+
+<style>
+@font-face{
+  font-family:"Merchant Copy";
+  src:url("MerchantCopy.ttf") format("truetype");
+}
+
+body{
+  font-family:Merchant Copy;
+  background:#eee;
+}
+
+.paper{
+  width:220px;
+  margin:auto;
+  background:#fff;
+  padding:12px;
+  font-size:12px;
+  line-height:1.05;
+}
+
+.spbu{
+  font-size:18px;
+  font-weight:bold;
+}
+
+.center{text-align:left;}
+
+.row{
+  display:grid;
+  grid-template-columns:72px 10px 1fr;
+  align-items:center;
+  line-height:1;
+  margin:0;
+}
+
+.row.info{
+  grid-template-columns:72px 12px 22px 1fr;
+}
+
+.row.info span:nth-child(3){
+  display:none;
+}
+
+.left input{
+  text-align:left;
+}
+
+.right input,
+.right select{
+  text-align:right;
+}
+
+.row.info select{
+  grid-column:3 / 5;
+  text-align:right;
+}
+
+.colon{text-align:center;}
+.rp{text-align:right;}
+.amount input{
+  font-weight:bold;
+}
+input,select{
+  border:none;
+  background:transparent;
+  font-family:Merchant Copy;
+  font-size:12px;
+  width:100%;
+  text-align:right;
+}
+
+select{
+  appearance:none;
+  -webkit-appearance:none;
+  -moz-appearance:none;
+}
+
+.datetime{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  margin-bottom:2px;
+}
+
+.datetime input{
+  text-align:left;
+}
+
+.datetime input:last-child{
+  text-align:right;
+}
+
+.amount{
+  font-weight:bold;
+}
+
+button{
+  width:220px;
+  margin:10px auto;
+  display:block;
+  padding:6px;
+}
+
+@media print{
+  body{background:#fff;}
+  button{display:none;}
+}
+</style>
+</head>
+
+<body>
+
+<div class="paper">
+
+<div class="center">
+<div class="spbu">SPBU 44 577.21 BATUJAMUS</div>
+BATUJAMUS KUTO KERJO<br>
+<br>
+K A R A N G A N Y A R<br>
+Telp. 0856404246544
+</div>
+
+<div class="row info right">
+<span>SELTER</span>
+<span class="colon"></span>
+<span></span>
+<select>
+<option>1</option>
+<option>2</option>
+<option>3</option>
+<option>4</option>
+</select>
+</div>
+
+<br>
+
+<div class="datetime">
+<input id="tanggal">
+<input id="jam" style="text-align:right;">
+</div>
+
+
+<div class="row left">
+<span>Receipt No.</span>
+<span class="colon">:</span>
+<input>
+</div>
+<br>
+<div class="row">
+<span>Grade</span><span class="colon"></span>
+<select>
+<option>PERTALITE 90</option>
+<option>PERTAMAX 92</option>
+<option>PERTAMAX GRN 95</option>
+<option>PERTAMAX TRB 98</option>
+<option>PERTAMAX RCG 100</option>
+<option>BIOSOLAR 48</option>
+<option>DEXLITE 51</option>
+<option>PERTAMINA DX 53</option>
+</select>
+</div>
+
+<div class="row right">
+<span>Volume(L)</span>
+<span class="colon"></span>
+<input>
+</div>
+
+<div class="row right">
+<span>Unit Price(Rp/L)</span>
+<span class="colon"></span>
+<input>
+</div>
+
+<div class="row right amount">
+<span>Amount(Rp)</span>
+<span class="colon"></span>
+<input>
+</div>
+
+<br>
+
+<div class="row right">
+<span>Vehicel No.</span>
+<span class="colon"></span>
+<input>
+</div>
+
+<br>
+
+TERIMA KASIH SELAMAT JALAN<br>
+SELAMAT SAMPAI TUJUAN<br>
+KALAU HABIS KEMBALI LAGI YA !
+
+</div>
+
+<button onclick="window.print()">PRINT</button>
+
+<script>
+
+let now = new Date()
+
+let tanggal =
+String(now.getDate()).padStart(2,"0") + "/" +
+String(now.getMonth()+1).padStart(2,"0") + "/" +
+now.getFullYear()
+
+let jam =
+String(now.getHours()).padStart(2,"0") + ":" +
+String(now.getMinutes()).padStart(2,"0")
+
+document.getElementById("tanggal").value = tanggal
+document.getElementById("jam").value = jam
+
+</script>
+
+</body>
+</html>
